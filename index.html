@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Welcome to xTrack</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic GitHub Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: cyan;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 10px cyan;
+        }
+        .glow-text {
+            font-size: 1.5rem;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px cyan; }
+            to { text-shadow: 0 0 20px cyan, 0 0 30px blue; }
+        }
+        .neon-border {
+            border: 2px solid cyan;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px cyan;
+            transition: 0.5s;
+        }
+        .neon-border:hover {
+            box-shadow: 0 0 30px cyan;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>This is my GitHub Pages website.</p>
+    <div class="container">
+        <h1>Welcome to the Future</h1>
+        <p class="glow-text">Your Cyberpunk GitHub Page</p>
+        <div class="neon-border">Hover over me!</div>
+    </div>
 </body>
 </html>
