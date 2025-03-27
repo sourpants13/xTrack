@@ -5,51 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xTrack Engine</title>
     <style>
+        /* General Styles */
         body {
-            margin: 0;
-            padding: 0;
-            background: black;
-            color: cyan;
             font-family: Arial, sans-serif;
             text-align: center;
-            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
         }
-        .container {
+        section {
+            height: 100vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            position: relative;
+            overflow: hidden;
         }
-        h1 {
-            font-size: 3rem;
-            text-shadow: 0 0 10px cyan;
+
+        /* Animated Glowing Text */
+        h1, h2 {
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: glow 1.5s infinite alternate;
         }
-        .glow-text {
-            font-size: 1.5rem;
-            animation: glow 2s infinite alternate;
-        }
+
         @keyframes glow {
-            from { text-shadow: 0 0 10px cyan; }
-            to { text-shadow: 0 0 20px cyan, 0 0 30px blue; }
+            0% { text-shadow: 0 0 5px cyan, 0 0 10px cyan; }
+            100% { text-shadow: 0 0 10px cyan, 0 0 20px cyan; }
         }
-        .neon-border {
-            border: 2px solid cyan;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px cyan;
-            transition: 0.5s;
+
+        /* Buttons */
+        button {
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(45deg, cyan, magenta);
+            box-shadow: 0 0 10px cyan;
+            transition: 0.3s ease-in-out;
         }
-        .neon-border:hover {
-            box-shadow: 0 0 30px cyan;
+
+        button:hover {
+            background: linear-gradient(45deg, magenta, cyan);
+            box-shadow: 0 0 20px magenta;
+        }
+
+        /* Comets Animation */
+        .comet {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: white;
+            box-shadow: 0 0 10px white;
+            border-radius: 50%;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh) translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh) translateX(50px);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+
+    <!-- Home Section -->
+    <section id="home">
         <h1>Welcome to xTrack Engine</h1>
-        <p class="glow-text">xTrack Engine is a next-generation game engine designed to revolutionize the way games are built and experienced. With cutting-edge real-time rendering, AI-driven physics, and seamless cross-platform support, xTrack Engine empowers developers to push the limits of creativity.</p>
-        <div class="neon-border">Click Me!</div>
-    </div>
+        <p>The future of gaming starts here.</p>
+        <button onclick="scrollToSection('features')">See Features</button>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <h2>Awesome Features</h2>
+        <p>Experience next-gen gaming technology.</p>
+        <button onclick="scrollToSection('contact')">Contact Us</button>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Email us at: support@xtrack.com</p>
+        <button onclick="scrollToSection('home')">Back to Home</button>
+    </section>
+
+    <!-- Falling Comets Script -->
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: "smooth" });
+        }
+
+        function createComet() {
+            const comet = document.createElement("div");
+            comet.classList.add("comet");
+            comet.style.left = Math.random() * window.innerWidth + "px";
+            comet.style.animationDuration = (Math.random() * 2 + 3) + "s";
+            document.body.appendChild(comet);
+
+            setTimeout(() => {
+                comet.remove();
+            }, 5000);
+        }
+
+        setInterval(createComet, 300);
+    </script>
+
 </body>
 </html>
