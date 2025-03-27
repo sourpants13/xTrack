@@ -123,6 +123,14 @@
         body.dark-mode .futuristic-btn:hover {
             background-color: #cc0099;
         }
+
+        /* Flexbox for buttons */
+        #buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
     </style>
 </head>
 <body>
@@ -132,8 +140,8 @@
 
     <div class="content">
         <header>
-            <h1>welcome to xtrack official</h1>
-            <p>a hub for some stuff, here is some stuff i used for this github page down below</p>
+            <h1>Welcome to XTrack Official</h1>
+            <p>A hub for some cool stuff, here is some stuff I used for this GitHub page down below.</p>
         </header>
 
         <section id="features">
@@ -154,6 +162,10 @@
         <section id="buttons">
             <button class="futuristic-btn" onclick="toggleHack()">Activate Hack</button>
             <button class="futuristic-btn" onclick="changeTheme()">Change Theme</button>
+            <!-- Button to redirect to Blooket Site -->
+            <button class="futuristic-btn" onclick="window.location.href='https://githubman6996.github.io/05konz-blooket-site/'">Go to Blooket Site</button>
+            <!-- Button to redirect to Google Docs -->
+            <button class="futuristic-btn" onclick="window.location.href='https://docs.google.com/document/d/1OUm7jEfO0md1RybJuw2Nki50E9MGx2vmjN_OaUh0q50/edit?tab=t.0'">Go to Google Docs</button>
         </section>
 
         <section id="hack-status">
